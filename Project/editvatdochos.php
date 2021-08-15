@@ -1,0 +1,83 @@
+<?php
+          include 'admin.php';
+          require_once 'controllers/vatController.php';
+		 $id=$_GET["id"];
+		 $vat=getVat($id);
+    ?>
+
+
+<html>
+<head>
+        <title>Edit</title>
+      <style>
+	 
+	            .add-div
+				{
+					
+				border:1px solid black;
+				margin:auto;
+				width:25%;
+				margin-top:4%;
+				
+				}
+ 		
+	  
+	  
+	  </style>
+
+</head>
+<body>
+
+  <body>
+        <div class="add-div">
+    <fieldset>
+        <legend align="center"><h1>Edit Information</h1></legend>
+        <form action="" onsubmit="return validateVat()" method="post">
+              <div class="center"><table>
+                 <tr>
+					<td><span><b>Doctor:<b></span></td>
+					<td><input type="hidden" name="id" value="<?php echo $vat["id"];?>">  
+					<input type="text" id="dname" name="dname"value="<?php echo $vat["dname"];?>" placeholder="Doctor Name">
+						<span id="err_dname"><?php echo $err_dname;?></span></td>
+				</tr>
+				<tr>
+					<td><span><b>Hospital:</b></span></td>
+					<td><input type="hidden" name="id" value="<?php echo $vat["id"];?>">  
+					<input type="text" id="hname" name="hname"value="<?php echo $vat["hname"];?>" placeholder="Hospital Name">
+						<span id="err_hname"><?php echo $err_hname;?></span></td>
+				</tr>
+				
+				<tr>
+					<td><span><b>Address:</b></span></td>
+					<td><input type="hidden" name="id" value="<?php echo $vat["id"];?>">  
+					<input type="text" id="ad" name="ad"value="<?php echo $vat["ad"];?>"placeholder="Address">
+					<span id="err_ad"><?php echo $err_ad;?></span></td>
+				</tr>	
+				
+				<tr>
+					<td><span><b>Email:</b></span></td>
+					<td><input type="hidden" name="id" value="<?php echo $vat["id"];?>">  
+					<input type="text" id="email" value="<?php echo $vat["email"];?>" name="email" placeholder="Mail Address">
+						<span id="err_email"><?php echo $err_email;?></span></td>
+				</tr>
+				<tr>
+					<td><span><b>Phone:</b></span></td>
+					<td><input type="hidden" name="id" value="<?php echo $vat["id"];?>">  
+					<input type="text" id="number" name="number"value="<?php echo $vat["number"];?>"placeholder="Number">
+					<span id="err_number"><?php echo $err_number;?></span></td>
+				</tr>
+				<tr>
+					<td><input type="submit" name="edit_dh" value="Edit" class="btn btn-success"></td>
+				</tr>
+
+       </table>
+        </form>
+        
+    </fieldset>
+	</div>
+   
+
+</body>
+<?php include 'admin_footer.php';?>
+<script src="JS/vatValidation.js"></script>
+</html>
